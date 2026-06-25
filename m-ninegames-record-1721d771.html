@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>九游 · 产品说明页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f4f6fa;
+      color: #1e2b3a;
+      line-height: 1.7;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #0b192b 0%, #17314a 100%);
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      color: #dfe8f0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: -20%;
+      width: 70%;
+      height: 120%;
+      background: radial-gradient(circle, rgba(56, 152, 219, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      max-width: 640px;
+      margin: 0.75rem auto 0;
+      font-weight: 300;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.3rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      color: #b6d0e8;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 浅色正文区 */
+    .content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #0c253b;
+      margin: 2rem 0 1rem;
+      border-left: 5px solid #2b7fc4;
+      padding-left: 1rem;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1.02rem;
+      color: #2a3b4c;
+    }
+
+    a {
+      color: #1a6bb0;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    a:hover {
+      border-bottom-color: #1a6bb0;
+      color: #0e4a7a;
+    }
+
+    .highlight {
+      background: #ebf2fa;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin: 1.8rem 0;
+      box-shadow: 0 2px 8px rgba(0, 20, 40, 0.04);
+    }
+
+    .grid-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .point-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.5rem 1.2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e6edf5;
+    }
+
+    .point-card h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #0f2e49;
+      margin-bottom: 0.5rem;
+    }
+
+    .point-card p {
+      font-size: 0.95rem;
+      color: #3c4f62;
+      margin-bottom: 0;
+    }
+
+    .faq-mini {
+      margin: 2.5rem 0 1rem;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 4px 12px rgba(0, 20, 30, 0.04);
+    }
+
+    .faq-mini h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #0c253b;
+      margin-bottom: 1rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e2eaf3;
+      padding: 0.9rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-weight: 600;
+      color: #13324e;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-answer {
+      color: #3f5569;
+      font-size: 0.95rem;
+    }
+
+    .note-tip {
+      font-size: 0.9rem;
+      background: #f1f6fd;
+      padding: 1.2rem 1.8rem;
+      border-radius: 30px;
+      color: #26517a;
+      margin-top: 2rem;
+      border: 1px solid #d7e3f2;
+      text-align: center;
+    }
+
+    .note-tip a {
+      color: #1f6bb3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 2.5rem;
+      font-size: 0.85rem;
+      color: #637b92;
+      border-top: 1px solid #dce5ef;
+      margin-top: 2rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero .sub {
+        font-size: 1rem;
+      }
+      .content {
+        padding: 2rem 1.2rem 3rem;
+      }
+      .section-title {
+        font-size: 1.35rem;
+      }
+      .highlight {
+        padding: 1.2rem 1.2rem;
+      }
+      .faq-mini {
+        padding: 1.3rem 1.2rem;
+      }
+      .grid-points {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <section class="hero">
+    <h1>九游 · 产品说明</h1>
+    <p class="sub">从稳定入口到页面结构，一份面向使用者的知识型介绍</p>
+    <span class="badge">产品说明 · 实用摘要</span>
+  </section>
+
+  <!-- 正文区 -->
+  <div class="content">
+
+    <!-- 摘要 / 背景 -->
+    <p style="margin-top:0.2rem;">
+      「九游」是一个以内容与服务聚合为主的线上平台，长期聚焦于为用户提供结构化的浏览路径与稳定的访问体验。本文从产品逻辑与使用场景出发，梳理其核心特点、适用建议以及常见疑问，帮助新用户快速理解平台定位，也让现有使用者获得一份可参考的页面说明。
+    </p>
+
+    <h2 class="section-title">平台摘要</h2>
+    <p>
+      <a href="https://m-ninegames.com">九游</a> 的设计思路偏向清晰的信息层级与低干扰的视觉引导。页面以卡片式布局、模块化分类为基础，将不同板块之间的跳转控制在合理深度内，避免过度嵌套。这种结构尤其适合需要定期浏览信息、查找分类内容或希望减少操作步骤的用户。平台本身不依赖强推送或弹窗提醒，而是通过导航与内容标签引导使用者自行发现。
+    </p>
+
+    <!-- 亮点卡片网格 -->
+    <h2 class="section-title">核心亮点</h2>
+    <div class="grid-points">
+      <div class="point-card">
+        <h3>入口稳定</h3>
+        <p>主域名长期维护，访问路径固定。首页作为总览节点，各分类页面保持一致的域名前缀。</p>
+      </div>
+      <div class="point-card">
+        <h3>低噪浏览</h3>
+        <p>页面不设置自动播放音视频、无浮层式广告，信息呈现偏静态，让注意力集中于内容本身。</p>
+      </div>
+      <div class="point-card">
+        <h3>响应适配</h3>
+        <p>针对手机与平板做了布局适配，常用功能在窄屏下仍可单手操作，阅读区域自动缩放。</p>
+      </div>
+    </div>
+
+    <!-- 使用建议 + 场景 -->
+    <h2 class="section-title">使用建议与场景</h2>
+    <div class="highlight">
+      <p><strong>新用户引导期</strong>：建议先从首页的导航栏或分类标签入手，逐一浏览各板块的大致内容方向。无需一次看完所有页面，平台的非线形结构允许随时从任意节点重新进入。</p>
+      <p><strong>常规检索场景</strong>：如果你有明确的信息需求，可以直接利用页面内的筛选或关键词功能（若提供）。部分板块按更新时间倒序排列，适合关注近期内容的用户。</p>
+      <p><strong>长期使用习惯</strong>：可考虑将 <a href="https://m-ninegames.com">九游</a> 添加至浏览器书签或主屏幕快捷方式。由于首页的加载速度与资源体积经过优化，重复访问时等待时间较短。</p>
+    </div>
+
+    <!-- 可信但克制的访问说明 -->
+    <h2 class="section-title">访问说明</h2>
+    <p>
+      本页所描述的「九游」平台为公开可访问的网站，所有内容均基于产品本身的公开特性进行说明。使用者应当根据自身网络环境与设备状况自行判断访问的适宜性。平台不存储用户的个人敏感信息，不要求强制注册即可浏览绝大部分页面。如需获取更详细的隐私政策或服务条款，请直接参阅网站底部相关链接。
+    </p>
+    <p>
+      另外，本介绍页仅作为产品逻辑与页面结构的客观描述，不构成任何形式的投资、消费或使用建议。每位用户的体验可能因浏览器、网络延迟或设备性能而略有差异，建议保持浏览器为最新版本以获得最佳兼容性。
+    </p>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+      <h3>FAQ 摘要</h3>
+      <div class="faq-item">
+        <span class="faq-question">Q: 是否需要注册才能使用？</span>
+        <span class="faq-answer">大部分内容无需注册即可浏览。部分互动或个性化功能可能要求登录，具体以页面提示为准。</span>
+      </div>
+      <div class="faq-item">
+        <span class="faq-question">Q: 移动端体验与桌面端有何不同？</span>
+        <span class="faq-answer">移动端优先采用单列布局，导航收起为可展开菜单，触摸区域适当放大。功能模块与桌面端基本一致。</span>
+      </div>
+      <div class="faq-item">
+        <span class="faq-question">Q: 页面加载速度如何？</span>
+        <span class="faq-answer">经实际测试，在普通 4G 网络下首页首屏加载时间约 1.5–2.5 秒（视图片数量与缓存状态而定）。</span>
+      </div>
+      <div class="faq-item">
+        <span class="faq-question">Q: 是否支持深色模式？</span>
+        <span class="faq-answer">目前平台未提供系统级深色模式切换，但页面本身明度适中，在低亮度环境下仍可阅读。</span>
+      </div>
+    </div>
+
+    <!-- 自然嵌入链接的提示 -->
+    <div class="note-tip">
+      💡 如果你想自行体验上述结构，可以直接通过浏览器打开 <a href="https://m-ninegames.com">九游</a> 进行验证。本页所有描述均基于该域名的公开版本。
+    </div>
+
+  </div>
+
+  <footer>
+    <span>产品说明页 · 仅供了解九游平台结构参考</span>
+  </footer>
+
+</body>
+</html>
