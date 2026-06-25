@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 杂志专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #faf7f2;
+            font-family: Georgia, 'Times New Roman', 'Noto Serif SC', serif;
+            color: #2c2a28;
+            line-height: 1.75;
+            padding: 0 20px;
+        }
+        .page-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 3rem 0 4rem;
+        }
+        /* hero */
+        .hero {
+            background: linear-gradient(145deg, #e8e0d6 0%, #f3eee9 100%);
+            padding: 2.8rem 2.5rem 2.2rem;
+            border-radius: 48px 48px 24px 24px;
+            margin-bottom: 3rem;
+            box-shadow: 0 12px 28px -8px rgba(0,0,0,0.06);
+            border-left: 6px solid #b3967a;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #3d322a;
+            margin-bottom: 0.6rem;
+        }
+        .hero .sub {
+            font-size: 1rem;
+            color: #6f5e51;
+            border-top: 1px dashed #ccbcaa;
+            padding-top: 1.2rem;
+            margin-top: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .hero .sub span {
+            background: #dfd4c8;
+            padding: 2px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #3a2e26;
+        }
+        /* 杂志式文章区块 */
+        .mag-section {
+            background: #ffffffec;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2.2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.02);
+            border-bottom: 1px solid #e6ddd2;
+        }
+        .mag-section h2 {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: #4c3d32;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px dotted #cbb7a4;
+            display: inline-block;
+        }
+        .mag-section p {
+            margin-bottom: 1rem;
+            text-indent: 1.6em;
+        }
+        .mag-section p:last-of-type {
+            margin-bottom: 0;
+        }
+        .pull-quote {
+            background: #f3ede6;
+            border-left: 3px solid #b3967a;
+            padding: 1.2rem 1.6rem;
+            margin: 1.6rem 0 1.2rem;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: #4e4137;
+            text-indent: 0;
+            font-size: 1rem;
+            box-shadow: inset 0 0 0 1px #ede3d9;
+        }
+        .pull-quote::before {
+            content: "“";
+            font-size: 2.4rem;
+            color: #b3967a;
+            line-height: 0.8;
+            margin-right: 6px;
+            vertical-align: -0.35em;
+        }
+        .faq-mini {
+            background: #f7f2eb;
+            border-radius: 18px;
+            padding: 1.2rem 1.8rem;
+            margin-top: 1.6rem;
+            border: 1px solid #e0d3c5;
+        }
+        .faq-mini dt {
+            font-weight: 600;
+            color: #4a3c31;
+            margin-top: 0.8rem;
+            font-size: 0.95rem;
+        }
+        .faq-mini dt:first-of-type {
+            margin-top: 0;
+        }
+        .faq-mini dd {
+            margin-left: 0.8rem;
+            color: #5b4f44;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            border-left: 2px solid #cbb7a4;
+            padding-left: 0.8rem;
+        }
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.4rem 0 0.8rem;
+        }
+        .feature-item {
+            flex: 1 1 140px;
+            background: #f6f0e9;
+            padding: 1rem 0.8rem;
+            border-radius: 30px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #4b3e34;
+            border: 1px solid #ded0c2;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .feature-item em {
+            display: block;
+            font-style: normal;
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+            color: #7d6856;
+        }
+        .foot-note {
+            background: #f0e9e0;
+            padding: 1.8rem 2.2rem;
+            border-radius: 40px 40px 20px 20px;
+            margin-top: 2.2rem;
+            text-align: center;
+            border: 1px solid #dcccbb;
+        }
+        .foot-note p {
+            font-size: 0.95rem;
+            color: #4f443b;
+        }
+        .foot-note .bookmark-tip {
+            display: inline-block;
+            background: #cbb7a4;
+            color: #2f2822;
+            padding: 0.3rem 1.4rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            letter-spacing: 0.3px;
+            margin: 0.6rem 0 0.2rem;
+        }
+        a {
+            color: #7b5f49;
+            text-decoration: none;
+            border-bottom: 1px dotted #b3967a;
+            transition: border-bottom 0.2s, color 0.2s;
+        }
+        a:hover {
+            color: #4d3628;
+            border-bottom: 1px solid #4d3628;
+        }
+        .sentence-link {
+            display: inline;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ddd2c5;
+            margin: 2rem 0 0.5rem;
+        }
+        @media (max-width: 600px) {
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .mag-section {
+                padding: 1.5rem 1.2rem;
+            }
+            .feature-grid {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .feature-item {
+                flex: 1 1 auto;
+            }
+            .pull-quote {
+                padding: 0.8rem 1rem;
+            }
+            .foot-note {
+                padding: 1.4rem 1rem;
+            }
+        }
+        @media (max-width: 440px) {
+            .hero .sub {
+                font-size: 0.9rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- hero 横幅 -->
+    <header class="hero">
+        <h1>华体会 · 再次相遇的笔记</h1>
+        <div class="sub">
+            <span>杂志专题</span>
+            <span>收藏与回访</span>
+            <span>持续关注</span>
+        </div>
+    </header>
+
+    <!-- 三段自然介绍 + 引用/提示框 融合 -->
+    <section class="mag-section">
+        <h2>重返的理由</h2>
+        <p>每次打开一个页面，像是翻开一本旧书。那些读过、存过的内容，总会在某个时刻重新浮现。而一个被认真标记过的角落——比如<a href="https://hthdex.com.cn">华体会</a>——会让人更愿意再次推门进来。不是迫切的寻找，而是像散步时路过一间熟悉的屋子，光线刚好，窗台摆着一本翻了一半的杂志。</p>
+        <p>网络上的空间很多，但能让人产生“保存下来”的念头却不多。收藏夹里的链接，要么被遗忘，要么被反复点开。而后者往往有某种安静的引力：结构清楚、语气平常、不带花哨的催促。华体会的页面正是如此，没有过度的装饰，内容的层次像手工折叠的纸页，翻到哪里都自然。</p>
+        <div class="pull-quote">
+            收藏不是囤积，是为未来的自己留一条熟悉的路。再访华体会，总有一段内容像老朋友那样等你。
+        </div>
+    </section>
+
+    <section class="mag-section">
+        <h2>收藏夹里的第三格</h2>
+        <p>很多人习惯把书签栏分成几类：常去的、偶尔参考的、以后要读的。而华体会往往属于中间那一类——它既不会每天打开，但每次想起时都值得花几分钟慢慢看。它的叙述不疾不徐，像整理过的笔记，也像一篇篇独立却呼应的短章。</p>
+        <p>这次重读时，发现页面里藏了一些有意思的细节。比如段落之间的留白，或者某些词句被悄然强调的方式。那种克制让人愿意多停留一会儿，而不是快速划走。也许这正是收藏的意义：不是为了占有，而是为了在未来某个时刻，能与一段文字再次握手。</p>
+        <!-- 特点小卡片，杂志常见的亮点框 -->
+        <div class="feature-grid">
+            <div class="feature-item"><em>◈</em> 平实叙述</div>
+            <div class="feature-item"><em>◈</em> 层次分明</div>
+            <div class="feature-item"><em>◈</em> 静心排版</div>
+            <div class="feature-item"><em>◈</em> 无扰阅读</div>
+        </div>
+        <p style="margin-top: 0.8rem; text-indent: 0;">这些特点并非刻意设计，而是来自内容本身的质地。就像一本老杂志，你不会因为它排版精美而收藏，而是因为它说了一些你正好想听的话。</p>
+    </section>
+
+    <section class="mag-section">
+        <h2>持续关注的自然方式</h2>
+        <p>关注一个站点，不一定要订阅邮件或推送。有时候只是偶尔想起，输入记忆中的地址，看看有没有新的段落。华体会的更新不频繁，但每次出现都像一封信，不厚不薄，刚好读完。这种节奏很适合那些不喜欢被打扰的人——你可以在自己的时间里回来，而不是被通知拽回。</p>
+        <p>如果你也有过“把某个页面留在手边”的念头，或许可以试试把<a href="https://hthdex.com.cn">华体会</a>放进书签的一个角落。不是作为资源，而是作为一段可以反复回看的内容。它不会催促你，也不会过期，只会安静地呆在那里，等你某天打开。</p>
+        <!-- 迷你FAQ摘要，增加杂志真实感 -->
+        <dl class="faq-mini">
+            <dt>问：华体会的内容会频繁变化吗？</dt>
+            <dd>答：不频繁。风格偏沉稳，适合细读，每次更新都有新的角度。</dd>
+            <dt>问：如果想重新找到之前读过的段落呢？</dt>
+            <dd>答：页面结构清晰，稍加浏览就能定位。收藏夹里放一个链接，随时可取。</dd>
+            <dt>问：需要注册或登录吗？</dt>
+            <dd>答：不需要。直接打开就能阅读，没有门槛。</dd>
+        </dl>
+    </section>
+
+    <!-- 页尾访问提示 -->
+    <footer class="foot-note">
+        <p>再次阅读 · 收藏 · 慢下来</p>
+        <div class="bookmark-tip">✦ 把这一页留在手边 ✦</div>
+        <p style="margin-top: 0.8rem; font-size: 0.85rem; color: #5b4f44;">
+            如果你觉得这段内容值得保存，不妨用浏览器书签标记<span style="border-bottom: 1px dotted #b3967a;">华体会</span>的页面。<br>
+            下次无论何时归来，它都在那里。
+        </p>
+        <hr style="width: 60px; margin: 1rem auto; border-color: #cbb7a4;">
+        <p style="font-size: 0.8rem; color: #7a6a5d;">—— 杂志专题 · 第零三号 ——</p>
+    </footer>
+
+</div>
+</body>
+</html>
